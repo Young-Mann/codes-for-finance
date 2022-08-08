@@ -1,8 +1,8 @@
-#ifndef RANDOM1_H
-#define RANDOM1_H
+#ifndef __RANDOM1_H__
+#define __RANDOM1_H__
 
 double GetOneGaussianBySummation();
 double GetOneGaussianByBoxMuller();
 
-#include "Random1.cpp"
+#include "Random1_Implementaion.h"
 #endif
