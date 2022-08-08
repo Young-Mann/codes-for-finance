@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SimpleMC.h"
+#include "SimpleMC2.h"
 using namespace std;
 
 int main() 
@@ -29,30 +29,30 @@ int main()
     cout << "Number of paths: " << endl;
     cin >> NumberOfPaths;
 	
-	PayOff callPayOff(Strike, PayOff::call);
-	PayOff putPayOff(Strike, PayOff::put);
+	unsigned long optionType;
+	
+	cout << "\nenter 0 for call, otherwise put "; cin >> optionType;
+	
+	PayOff* thePayOffPtr;
+	if (optionType == 0)
+		thePayOffPtr = new PayOffCall(Strike);
+	else 
+		thePayOffPtr = new PayOffPut(Strike);
 	
 	
-    double resultCall = SimpleMonteCarlo2(callPayOff,
-                                      Expiry,
-                                      Spot,
-                                      Vol,
-                                      r,
-                                      NumberOfPaths);
-									  
-	double resultPut = SimpleMonteCarlo2(putPayOff,
+    double result = SimpleMonteCarlo2(*thePayOffPtr,
                                       Expiry,
                                       Spot,
                                       Vol,
                                       r,
                                       NumberOfPaths);
 
-    cout << "The price of the options are: " << endl 
-		 << "(call) " << resultCall << endl
-		 << "(put)  " << resultPut << endl;
+    cout << "The price of the options are: " << result << endl;
 
     double tmp;
     cin >> tmp;
+	
+	delete thePayOffPtr;
 
     return 0;
 }

@@ -1,21 +1,25 @@
 #include <iostream>
-#include "SimpleMC.h"
+#include "SimpleMC2.h"
+#include "DoubleDigital.h"
 using namespace std;
 
 int main() 
 {
 	double Expiry;
-    double Strike;
     double Spot;
     double Vol;
     double r;
+	double Low, Up;
     unsigned long NumberOfPaths;
 
     cout << "Enter expiry: " << endl;
     cin >> Expiry;
 
-    cout << "Enter strike: " << endl;
-    cin >> Strike;
+    cout << "Enter low barrier: " << endl;
+    cin >> Low;
+
+    cout << "Enter up barrier: " << endl;
+    cin >> Up;
 
     cout << "Enter spot: " << endl;
     cin >> Spot;
@@ -29,30 +33,20 @@ int main()
     cout << "Number of paths: " << endl;
     cin >> NumberOfPaths;
 	
-	PayOff callPayOff(Strike, PayOff::call);
-	PayOff putPayOff(Strike, PayOff::put);
+	PayOffDoubleDigital thePayOff(Low, Up);
 	
 	
-    double resultCall = SimpleMonteCarlo2(callPayOff,
+    double result = SimpleMonteCarlo2(thePayOff,
                                       Expiry,
                                       Spot,
                                       Vol,
                                       r,
                                       NumberOfPaths);
 									  
-	double resultPut = SimpleMonteCarlo2(putPayOff,
-                                      Expiry,
-                                      Spot,
-                                      Vol,
-                                      r,
-                                      NumberOfPaths);
-
-    cout << "The price of the options are: " << endl 
-		 << "(call) " << resultCall << endl
-		 << "(put)  " << resultPut << endl;
+    cout << "The price of the options are: " << result << endl;
 
     double tmp;
     cin >> tmp;
 
     return 0;
-}
+}x

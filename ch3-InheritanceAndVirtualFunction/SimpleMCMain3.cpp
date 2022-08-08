@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SimpleMC.h"
+#include "SimpleMC2.h"
 using namespace std;
 
 int main() 
@@ -29,8 +29,8 @@ int main()
     cout << "Number of paths: " << endl;
     cin >> NumberOfPaths;
 	
-	PayOff callPayOff(Strike, PayOff::call);
-	PayOff putPayOff(Strike, PayOff::put);
+	PayOffCall callPayOff(Strike);
+	PayOffPut putPayOff(Strike);
 	
 	
     double resultCall = SimpleMonteCarlo2(callPayOff,
