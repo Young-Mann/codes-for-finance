@@ -1,4 +1,4 @@
-n// requires Random1.cpp
+// requires Random1.cpp
 
 #include <iostream>
 #include <cmath>
