@@ -3,13 +3,13 @@
 #include "DoubleDigital.h"
 using namespace std;
 
-int main() 
+int main()
 {
-	double Expiry;
-    double Spot;
-    double Vol;
-    double r;
-	double Low, Up;
+    double        Expiry;
+    double        Spot;
+    double        Vol;
+    double        r;
+    double        Low, Up;
     unsigned long NumberOfPaths;
 
     cout << "Enter expiry: " << endl;
@@ -32,17 +32,16 @@ int main()
 
     cout << "Number of paths: " << endl;
     cin >> NumberOfPaths;
-	
-	PayOffDoubleDigital thePayOff(Low, Up);
-	
-	
+
+    PayOffDoubleDigital thePayOff(Low, Up);
+
     double result = SimpleMonteCarlo2(thePayOff,
                                       Expiry,
                                       Spot,
                                       Vol,
                                       r,
                                       NumberOfPaths);
-									  
+
     cout << "The price of the options are: " << result << endl;
 
     double tmp;

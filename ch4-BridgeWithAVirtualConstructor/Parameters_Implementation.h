@@ -11,8 +11,7 @@ Parameters::Parameters(const Parameters& original)
 
 Parameters& Parameters::operator=(const Parameters& original)
 {
-    if (this != &original)
-    {
+    if (this != &original) {
         delete InnerObjectPtr;
         InnerObjectPtr = original.InnerObjectPtr->clone();
     }
@@ -38,8 +37,8 @@ double Parameters::RootMeanSquare(double time1, double time2) const
 
 ParametersConstant::ParametersConstant(double constant)
 {
-    Constant = constant;
-    ConstantSquare = constant*constant;
+    Constant       = constant;
+    ConstantSquare = constant * constant;
 }
 
 ParametersInner* ParametersConstant::clone() const
@@ -50,10 +49,10 @@ ParametersInner* ParametersConstant::clone() const
 
 double ParametersConstant::Integral(double time1, double time2) const
 {
-    return (time2 - time1)*Constant;
+    return (time2 - time1) * Constant;
 }
 
 double ParametersConstant::IntegralSquare(double time1, double time2) const
 {
-    return (time2 - time1)*ConstantSquare;
+    return (time2 - time1) * ConstantSquare;
 }

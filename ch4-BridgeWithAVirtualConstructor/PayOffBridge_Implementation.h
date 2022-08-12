@@ -18,8 +18,7 @@ PayOffBridge::~PayOffBridge()
 PayOffBridge& PayOffBridge::operator=(const PayOffBridge& original)
 {
     // 自己之前写错，写成了：if (PayOffBridge.ThePayOffPtr != original.ThePayOffPtr)
-    if (this != &original)
-    {
+    if (this != &original) {
         delete ThePayOffPtr;
         ThePayOffPtr = original.ThePayOffPtr->clone();
     }

@@ -1,6 +1,6 @@
 
 VanillaOption::VanillaOption(const PayOff& ThePayOff_, double Expiry_)
-: ThePayOff(ThePayOff_), Expiry(Expiry_) {}
+    : ThePayOff(ThePayOff_), Expiry(Expiry_) {}
 
 double VanillaOption::OptionPayOff(double Spot) const
 {

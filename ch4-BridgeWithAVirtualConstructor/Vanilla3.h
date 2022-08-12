@@ -4,14 +4,14 @@
 
 class VanillaOption
 {
-    public:
-        VanillaOption(const PayOff& ThePayOff_, double Expiry_);
-        double OptionPayOff(double Spot) const;
-        double GetExpiry() const;
+  public:
+    VanillaOption(const PayOff& ThePayOff_, double Expiry_);
+    double OptionPayOff(double Spot) const;
+    double GetExpiry() const;
 
-    private:
-        PayOffBridge ThePayOff;
-        double Expiry;
+  private:
+    PayOffBridge ThePayOff;
+    double       Expiry;
 };
 
 #include "Vanilla3_Implementation.h"

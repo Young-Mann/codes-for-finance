@@ -4,10 +4,10 @@
 #include "Parameters.h"
 
 double SimpleMonteCarlo6(const VanillaOption& TheOption,
-                         double Spot,
-                         const Parameters& Vol,
-                         const Parameters& r,
-                         unsigned long NumberOfPaths);	
+                         double               Spot,
+                         const Parameters&    Vol,
+                         const Parameters&    r,
+                         unsigned long        NumberOfPaths);
 
 #include "SimpleMC6_Implementation.h"
 #endif

@@ -2,13 +2,13 @@
 #include "SimpleMC2.h"
 using namespace std;
 
-int main() 
+int main()
 {
-	double Expiry;
-    double Strike;
-    double Spot;
-    double Vol;
-    double r;
+    double        Expiry;
+    double        Strike;
+    double        Spot;
+    double        Vol;
+    double        r;
     unsigned long NumberOfPaths;
 
     cout << "Enter expiry: " << endl;
@@ -28,18 +28,18 @@ int main()
 
     cout << "Number of paths: " << endl;
     cin >> NumberOfPaths;
-	
-	unsigned long optionType;
-	
-	cout << "\nenter 0 for call, otherwise put "; cin >> optionType;
-	
-	PayOff* thePayOffPtr;
-	if (optionType == 0)
-		thePayOffPtr = new PayOffCall(Strike);
-	else 
-		thePayOffPtr = new PayOffPut(Strike);
-	
-	
+
+    unsigned long optionType;
+
+    cout << "\nenter 0 for call, otherwise put ";
+    cin >> optionType;
+
+    PayOff* thePayOffPtr;
+    if (optionType == 0)
+        thePayOffPtr = new PayOffCall(Strike);
+    else
+        thePayOffPtr = new PayOffPut(Strike);
+
     double result = SimpleMonteCarlo2(*thePayOffPtr,
                                       Expiry,
                                       Spot,
@@ -51,8 +51,8 @@ int main()
 
     double tmp;
     cin >> tmp;
-	
-	delete thePayOffPtr;
+
+    delete thePayOffPtr;
 
     return 0;
 }
