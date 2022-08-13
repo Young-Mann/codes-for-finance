@@ -1,4 +1,3 @@
-#include <cstdio>
 #include "../ch1-VanillaCallOption/Random1.h"
 #include <cmath>
 
